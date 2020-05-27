@@ -35,9 +35,12 @@ class _TasksScreenState extends State<TasksScreen> {
             // AddTaskScreen sits just above the keyboard
             // Use MediaQuery to determine spacing at the bottom
             builder: (context) => AddTaskScreen(
-              ((newTaskTitle) {
-                // TODO: Why?
-                print('tasks: $newTaskTitle'); // DOESN'T WORK! #####################################
+              ((String newTaskTitle) {
+                setState(() {
+                  // Add new item to the task list
+                  tasks.add(Task(name: newTaskTitle));
+                });
+                Navigator.pop(context);
               }),
             ),
 //            builder: (context) => SingleChildScrollView(
@@ -91,8 +94,7 @@ class _TasksScreenState extends State<TasksScreen> {
                     ),
                   ),
                   Text(
-                    // TODO: Count tasks in list
-                    '12 Tasks',
+                    '${tasks.length} Tasks',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 12,

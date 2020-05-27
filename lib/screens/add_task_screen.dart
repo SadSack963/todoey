@@ -54,8 +54,13 @@ class AddTaskScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 40),
             color: Colors.lightBlueAccent,
             onPressed: () {
+              // I eventually found out that (at least on the Android emulator),
+              // if you type the text and then click the green tick on the pop-up keyboard,
+              // then the callback returns null when the Add button is pressed,
+              // even though the text remains in the TextField.
+              //
+              // If you simply type the text and click the Add button. then it works correctly!
               addTaskCallback(newTaskTitle);
-// correct to here
             },
             disabledColor: Colors.red,
 //            onPressed: () {
