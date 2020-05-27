@@ -40,6 +40,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   // Add new item to the task list
                   tasks.add(Task(name: newTaskTitle));
                 });
+                // Close the Add Bottomsheet
                 Navigator.pop(context);
               }),
             ),
